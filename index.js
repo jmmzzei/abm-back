@@ -13,4 +13,18 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+if (process.env.NODE_ENV !== 'test') {
+  sequelize
+    .sync()
+    .then(() => {
+      console.log(
+        'Connection succesfully established with: ' +
+          sequelize.getDatabaseName(),
+      )
+    })
+    .catch(err => {
+      console.error('Unable to connect to the database:', err)
+    })
+}
+
 module.exports = app
