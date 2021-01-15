@@ -14,6 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/companies', require('./routes/companies'))
+app.use('/employees', require('./routes/employees'))
 
 if (process.env.NODE_ENV !== 'test') {
   sequelize
