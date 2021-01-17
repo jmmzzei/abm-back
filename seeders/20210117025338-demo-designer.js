@@ -3,14 +3,13 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
-      'employees',
+      'designers',
       [
         {
           first_name: 'Juan',
           last_name: 'Perez',
-          age: 50,
-          type: 'diseñador',
-          role: 'gráfico',
+          birthdate: '1985-06-02',
+          type_id: 1,
           company_id: 1,
           created_at: new Date(),
           updated_at: new Date(),
@@ -18,9 +17,8 @@ module.exports = {
         {
           first_name: 'María',
           last_name: 'Fernandez',
-          age: 54,
-          type: 'programador',
-          language: 'php',
+          birthdate: '1980-06-06',
+          type_id: 2,
           company_id: 1,
           created_at: new Date(),
           updated_at: new Date(),
@@ -28,9 +26,8 @@ module.exports = {
         {
           first_name: 'Milagros',
           last_name: 'Alsina',
-          age: 20,
-          type: 'programador',
-          language: 'net',
+          birthdate: '1994-01-01',
+          type_id: 2,
           company_id: 1,
           created_at: new Date(),
           updated_at: new Date(),
@@ -38,29 +35,8 @@ module.exports = {
         {
           first_name: 'Jose',
           last_name: 'Gonzalez',
-          age: 54,
-          type: 'diseñador',
-          role: 'web',
-          company_id: 1,
-          created_at: new Date(),
-          updated_at: new Date(),
-        },
-        {
-          first_name: 'Pedro',
-          last_name: 'Ricardo',
-          age: 32,
-          type: 'programador',
-          language: 'python',
-          company_id: 1,
-          created_at: new Date(),
-          updated_at: new Date(),
-        },
-        {
-          first_name: 'Juan',
-          last_name: 'Mario',
-          age: 39,
-          type: 'programador',
-          language: 'net',
+          birthdate: '1971-06-01',
+          type_id: 1,
           company_id: 1,
           created_at: new Date(),
           updated_at: new Date(),
@@ -71,6 +47,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('employees', null, {})
+    return queryInterface.bulkDelete('designers', null, {})
   },
 }

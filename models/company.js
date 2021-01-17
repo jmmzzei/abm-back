@@ -10,7 +10,8 @@ module.exports = (sequelize, type) => {
     { underscored: true },
   )
   companyModel.associate = function (models) {
-    companyModel.hasMany(models.employee)
+    companyModel.hasMany(models.designer)
+    companyModel.hasMany(models.programmer)
   }
   return companyModel
 }
