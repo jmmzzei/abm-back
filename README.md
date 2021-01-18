@@ -1,6 +1,6 @@
 ## Start
 
-To start the server en development mode, create the database and populate it, you just need to execute:
+To start the server in development mode, create the database and populate it, you just need to execute:
 `npm start`.
 
 This command calls `npm prestart` automatically and the last one executes a series of npm scripts that sets a development environment.
