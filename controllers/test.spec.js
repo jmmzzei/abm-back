@@ -62,7 +62,7 @@ describe('/companies', () => {
     })
   })
 
-  describe('GET /employees ', () => {
+  describe('GET /employees/:role ', () => {
     test('It should respond with all the employees', async () => {
       const response = await request(app).get('/employees/all')
       expect(response.statusCode).toBe(200)
@@ -95,7 +95,7 @@ describe('GET /employees/:role/:id ', () => {
 })
 
 describe('POST /employees', () => {
-  test('It should save a new post', async () => {
+  test('It should post an employee', async () => {
     const response = await request(app).post('/employees/').send({
       first_name: 'Posted Name',
       last_name: 'Apellido',
@@ -133,6 +133,21 @@ describe('PATCH /employees/:id ', () => {
       companyId: 1,
     })
     expect(response.body.status).toEqual('fail')
+  })
+})
+
+describe('DELETE /employees/:role/:id ', () => {
+  test('It should delete an employee', async () => {
+    const priorPosts = await request(app).get('/employees/programmer')
+    expect(priorPosts.body.status).toBe('success')
+    const lengthPriorPosts = priorPosts.body.data.employees.length
+
+    const response = await request(app).delete('/employees/programmer/2')
+    expect(response.statusCode).toBe(200)
+    expect(response.body.data).toEqual(1)
+
+    const employees = await request(app).get('/employees/programmer')
+    expect(employees.body.data.employees.length).toBe(lengthPriorPosts - 1)
   })
 })
 
