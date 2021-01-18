@@ -1,6 +1,10 @@
 ## Start
 
-To start the server in development mode, create the database and populate it, you just need to execute:
+First, you need to install the dependencies with `npm install`.
+
+Then, rename the `.env.example` file to `.env` and complete it with the required data.
+
+Finally, to start the server in development mode, create the database and populate it, you just need to execute:
 `npm start`.
 
 This command calls `npm prestart` automatically and the last one executes a series of npm scripts that sets a development environment.
