@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "db:drop": "npx sequelize-cli db:drop --env $NODE_ENV",
+    "db:create": "npx sequelize-cli db:create --env $NODE_ENV",
+    "db:migrate": "npx sequelize-cli db:migrate --env $NODE_ENV",
+    "db:seed": "npx sequelize-cli db:seed:all --env $NODE_ENV",
+    "db": "npm run db:drop && npm run db:create && npm run db:migrate",
+    "prestart": "export NODE_ENV=development || set NODE_ENV=development&& npm run db && npm run db:seed",
+    "pretest": "export NODE_ENV=test || set NODE_ENV=test&& npm run db",
+    "start": " nodemon server.js",
     "test": "jest --watchAll"
   },
   "keywords": [],
