@@ -2,7 +2,10 @@ process.env.NODE_ENV = 'test'
 const app = require('../index')
 const request = require('supertest')
 const db = require('../models/index')
-const populateEmployees = require('../helpers/populateEmployees')
+const populateProgrammers = require('../helpers/populateProgrammers')
+const populateDesigners = require('../helpers/populateDesigners')
+const populateTypes = require('../helpers/populateTypes')
+const populateLanguages = require('../helpers/populateLanguages')
 const populateCompanies = require('../helpers/populateCompanies')
 
 describe('/companies', () => {
@@ -20,7 +23,16 @@ describe('/companies', () => {
           populateCompanies()
         })
         .then(() => {
-          populateEmployees()
+          populateTypes()
+        })
+        .then(() => {
+          populateLanguages()
+        })
+        .then(() => {
+          populateProgrammers()
+        })
+        .then(() => {
+          populateDesigners()
         })
         .catch(e => {
           throw new Error(e)
