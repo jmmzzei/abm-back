@@ -26,7 +26,3 @@ The three basic types of response are:
 <tr><td>fail</td><td> <b>Client problem:</b> There was a problem with the data submitted, or some pre-condition of the API call wasn't satisfied</td><td>status, data</td></tr>
 <tr><td>error</td><td> <b>Server problem:</b> An error occurred in processing the request, i.e. an exception was thrown</td><td>status, data</td></tr>
 </table>
-
-## Database Diagram
-
-![database diagram](./diagram.jpeg 'Diagram')
